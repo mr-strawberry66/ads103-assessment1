@@ -7,10 +7,10 @@
 #include "Paladin.hpp"
 #include "Mage.hpp"
 
-/* Namespace to keep game related functions out of the global namespace. */
+/** Namespace to keep game related functions out of the global namespace. */
 namespace Game
 {
-    /* Return how many hitpoints a Character has remaining.
+    /** Return how many hitpoints a Character has remaining.
      *
      * Args:
      *   Character character:
@@ -34,7 +34,7 @@ namespace Game
         return character.getName() + " has " + std::to_string(character.getHitPoints()) + " hit points remaining!\n";
     }
 
-    /* Return how much damage a Character has done.
+    /** Return how much damage a Character has done.
      *
      * Args:
      *   Character character:
@@ -53,7 +53,7 @@ namespace Game
         return character.getName() + " deals " + std::to_string(damage) + " hit points!\n";
     }
 
-    /* Return how much healing a Paladin has done.
+    /** Return how much healing a Paladin has done.
      *
      * Args:
      *   Paladin paladin:
@@ -69,7 +69,7 @@ namespace Game
         return paladin.getName() + " heals for " + std::to_string(paladin.getHealAmount()) + " hit points!\n";
     }
 
-    /* Run the fight between the Paladin and Mage.
+    /** Run the fight between the Paladin and Mage.
      *
      * Args:
      *   Paladin& paladin:
