@@ -11,7 +11,8 @@
  */
 int main()
 {
-    try {
+    try
+    {
         Paladin paladin = Paladin("Alvin Abram", 60, 8, 5, 0, 10);
         Mage mage = Mage("Delancy Gresham", 50, 5, 2, 57, 15);
 
@@ -23,7 +24,8 @@ int main()
         else
             std::cout << "Mage " << mage.getName() << " wins!" << std::endl;
     }
-    catch (const std::invalid_argument err) {
+    catch (const std::invalid_argument err)
+    {
         std::cout << "Error! " << err.what() << std::endl;
     }
 }

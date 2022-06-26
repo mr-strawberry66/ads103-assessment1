@@ -86,6 +86,7 @@ namespace Game
             int mageDamage = mage.doAction();
 
             mage.takeDamage(paladinDamage);
+
             if (paladinDamage == 0)
                 std::cout << Game::healingDoneStatus(paladin);
             else
