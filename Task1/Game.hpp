@@ -28,7 +28,7 @@ namespace Game
     {
         if (character.getHitPoints() < 0)
         {
-            return character.getName() + " has died!";
+            return character.getName() + " has died!\n";
         }
 
         return character.getName() + " has " + std::to_string(character.getHitPoints()) + " hit points remaining!\n";
