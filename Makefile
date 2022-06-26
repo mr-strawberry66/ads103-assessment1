@@ -1,5 +1,9 @@
-default: build
+default: game linkedlist
 
-build:
-	g++ -std=c++17 ADS103Assessment1/*.cpp
+game:
+	g++ -std=c++17 Task1/*.cpp
+	./a.out
+
+linkedlist:
+	g++ -std=c++17 Task2/*.cpp
 	./a.out
