@@ -3,6 +3,11 @@
 #include "List.hpp"
 #include "Operations.hpp"
 
+/**
+ * @brief Time inserting and deleting from Lists using different methods.
+ *
+ * @return int The exit code.
+ */
 int main()
 {
     List list1;

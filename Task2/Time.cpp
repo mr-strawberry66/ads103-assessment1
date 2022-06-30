@@ -1,13 +1,23 @@
 #include "Time.hpp"
 
-int Time::timeFunction(void (*func)(List& list), List& list) {
-    std::chrono::steady_clock::time_point start =
-        std::chrono::steady_clock::now();
+/**
+ * @brief Time how long a function takes to execute in milliseconds.
+ *
+ * @param func The function to time.
+ * @param list A reference to the list to add or remove items from/to.
+ * @return int The time taken to execute the function in milliseconds.
+ */
+int Time::timeFunction(void (*func)(List &list), List &list)
+{
+    using std::chrono::duration_cast;
+    using std::chrono::milliseconds;
+    using std::chrono::steady_clock;
+
+    steady_clock::time_point start = steady_clock::now();
 
     func(list);
 
-    std::chrono::steady_clock::time_point end =
-        std::chrono::steady_clock::now();
+    steady_clock::time_point end = steady_clock::now();
 
-    return std::chrono::duration_cast<std::chrono::milliseconds>(end - start).count();
+    return duration_cast<milliseconds>(end - start).count();
 }

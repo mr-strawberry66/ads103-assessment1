@@ -7,14 +7,16 @@
 #include "List.hpp"
 #include "Time.hpp"
 
-namespace Operations {
-    void insertFromFront(List& list);
-    void insertFromEnd(List& list);
-    void deleteFromFront(List& list);
-    void deleteFromEnd(List& list);
+/** @brief Functions to test insert or delete operations from Lists. */
+namespace Operations
+{
+    void insertFromFront(List &list);
+    void insertFromEnd(List &list);
+    void deleteFromFront(List &list);
+    void deleteFromEnd(List &list);
 
-    void runInsert(List& list1, List& list2);
-    void runDelete(List& list1, List& list2);
+    void runInsert(List &list1, List &list2);
+    void runDelete(List &list1, List &list2);
 }
 
 #endif

@@ -1,17 +1,25 @@
 #ifndef LIST
 #define LIST
 
+#include <stdexcept>
 #include <iostream>
 #include "Node.hpp"
 
+/**
+ * @brief A class to represent a linked List.
+ *
+ * @param head The pointer to the first Node in the List.
+ */
 class List
 {
 public:
-    // Points to the first item of the linked list.
-    Node* head = nullptr;
+    Node *head = nullptr;
 
     int length();
     void printValues();
+
+    int operator[](int index);
+    int get(int index, int defaultValue = -1);
 
     void insert(int value);
     void append(int value);

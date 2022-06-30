@@ -1,5 +1,10 @@
 #include "Operations.hpp"
 
+/**
+ * @brief Insert 50,000 integers into the front of a List.
+ *
+ * @param list The list to insert the data into.
+ */
 void Operations::insertFromFront(List &list)
 {
     for (int i = 0; i < 50000; i++)
@@ -8,6 +13,11 @@ void Operations::insertFromFront(List &list)
     }
 }
 
+/**
+ * @brief Append 50,000 integers to a List.
+ *
+ * @param list The list to append the data to.
+ */
 void Operations::insertFromEnd(List &list)
 {
     for (int i = 0; i < 50000; i++)
@@ -16,6 +26,11 @@ void Operations::insertFromEnd(List &list)
     }
 }
 
+/**
+ * @brief Delete 50,000 integers from the front of a List.
+ *
+ * @param list The list to delete the data from.
+ */
 void Operations::deleteFromFront(List &list)
 {
     for (int i = 0; i < 50000; i++)
@@ -24,6 +39,11 @@ void Operations::deleteFromFront(List &list)
     }
 }
 
+/**
+ * @brief Delete 50,000 integers from the end of a List.
+ *
+ * @param list The list to delete the data from.
+ */
 void Operations::deleteFromEnd(List &list)
 {
     for (int i = 0; i < 50000; i++)
@@ -32,6 +52,12 @@ void Operations::deleteFromEnd(List &list)
     }
 }
 
+/**
+ * @brief Test inserting 50,000 integers into a List by appending to one list and inserting into another.
+ *
+ * @param list1 The list to insert data into the front of.
+ * @param list2 The list to append data to.
+ */
 void Operations::runInsert(List &list1, List &list2)
 {
     std::string insertMessage;
@@ -51,6 +77,12 @@ void Operations::runInsert(List &list1, List &list2)
         << insertMessage << "\n\n";
 }
 
+/**
+ * @brief Test deleting 50,000 integers from a List by deleting from the front of one and the back of another.
+ *
+ * @param list1 The list to delete data from the front of.
+ * @param list2 The list to delete data from the back of.
+ */
 void Operations::runDelete(List &list1, List &list2)
 {
 
