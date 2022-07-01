@@ -4,27 +4,14 @@
 #include <string>
 #include "Character.hpp"
 
-/** Class to represent a character with the calss of Warrior.
+/**
+ * @brief Class to represent a character type Warrior.
  *
- * Properties:
- *   std::string name:
- *     The name of the warrior.
- *
- *   int hitPoints:
- *     The number of hitpoints the warrior has.
- *
- *   int strength:
- *     The base amount of damage a warrior can do
- *    in hitpoints.
- *
- *   int defence:
- *     How much damage a warrior can mitigate
- *     in hitpoints.
- *
- *   int ragePoints:
- *     How much rage the warrior has stored.
- *
- * Methods are documented in the implementation file.
+ * @param name The name of the warrior.
+ * @param hitPoints How much health the warrior has.
+ * @param strength How much base damage the warrior can do.
+ * @param defence How much damage the warrior can mitigate per turn.
+ * @param ragePoints How much rage the warrior has stored.
  */
 class Warrior : public Character
 {

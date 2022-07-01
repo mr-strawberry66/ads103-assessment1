@@ -2,12 +2,7 @@
 #include <stdexcept>
 #include "Mage.hpp"
 
-/** Default constructor for a Mage object.
- *
- * Sets the name, hit points, strength,
- * defence, mana points, and fireball damage
- * to the default values.
- */
+/** @brief Default constructor for a new Mage::Mage object. */
 Mage::Mage()
 {
     this->setName("Drarnamm Hollowbreath");
@@ -18,28 +13,15 @@ Mage::Mage()
     this->setFireballDamage(25);
 }
 
-/** Constructor for a Mage object.
+/**
+ * @brief Construct a new Mage::Mage object.
  *
- * Args:
- *   std::string name:
- *     The name you want to give your mage.
- *
- *   int hitPoints:
- *     How much health to give your mage (max value of 100).
- *
- *   int strength:
- *     How strong your mage should be (max value of 10).
- *
- *   int defence:
- *     How well you wish your mage to be able to
- *     defend against attacks (max value of 10).
- *
- *   int manaPoints:
- *     How much mana to give your mage (min value of 0).
- *
- *   int fireballDamage:
- *     How much damage to give your fireball
- *     (min value of 0, max of 30).
+ * @param name The name to give your mage.
+ * @param hitPoints How much health your mage should have.
+ * @param strength How much damage your mage can do.
+ * @param defence The amount of damage your mage can mitigate per turn.
+ * @param manaPoints How much mana your mage starts with.
+ * @param fireballDamage How much damage the fireball spell does.
  */
 Mage::Mage(std::string name, int hitPoints, int strength,
            int defence, int manaPoints, int fireballDamage)
@@ -52,20 +34,21 @@ Mage::Mage(std::string name, int hitPoints, int strength,
     this->setFireballDamage(fireballDamage);
 }
 
-/** Return the amount of mana points the mage has. */
+/**
+ * @brief Return how much mana the mage currently has.
+ *
+ * @return int The mage's current mana.
+ */
 int Mage::getManaPoints()
 {
     return this->manaPoints;
 }
 
-/** Set the amount of mana points the mage has.
+/**
+ * @brief Set the mage's current mana.
  *
- * Args:
- *   int manaPoints:
- *     How much mana the mage should start with.
- *
- * Throws std::invalid_argument:
- *   If manaPoints is less than 0.
+ * @param manaPoints The amount of mana the mage should have.
+ * @throws std::invalid_argument if the mana is negative.
  */
 void Mage::setManaPoints(int manaPoints)
 {
@@ -76,21 +59,21 @@ void Mage::setManaPoints(int manaPoints)
     this->manaPoints = manaPoints;
 }
 
-/** Return the amount of damage the fireball does. */
+/**
+ * @brief Get how much damage the fireball spell deals.
+ *
+ * @return int The amount of damage the fireball spell deals.
+ */
 int Mage::getFireballDamage()
 {
     return this->fireballDamage;
 }
 
-/** Set the amount of damage the fireball does.
+/**
+ * @brief Set how much damage the fireball spell deals.
  *
- * Args:
- *   int fireballDamage:
- *     The amount of damage the fireball attack
- *     should deal in hitpoints.
- *
- * Throws std::invalid_argument:
- *   If fireballDamage is less than 0 or greater than 30.
+ * @param fireballDamage The amount of damage the fireball spell should do.
+ * @throws std::invalid_argument if the damage is negative or greater than 30.
  */
 void Mage::setFireballDamage(int fireballDamage)
 {
@@ -105,11 +88,10 @@ void Mage::setFireballDamage(int fireballDamage)
     this->fireballDamage = fireballDamage;
 }
 
-/** Return the amount of damage the mage does this turn.
+/**
+ * @brief Attack another character.
  *
- * If the mage has enough mana, they will use a fireball
- * attack. Otherwise, they will use a basic attack, and
- * regenerate 3 mana.
+ * @return int How much damage the mage deals to the other character.
  */
 int Mage::doAction()
 {

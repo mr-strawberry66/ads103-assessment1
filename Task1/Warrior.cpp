@@ -2,12 +2,7 @@
 #include <stdexcept>
 #include "Warrior.hpp"
 
-/** Default constructor for a Warrior object.
- *
- * Sets the name, hit points, strength,
- * defence, and rage points to the
- * default values.
- */
+/** @brief Default constructor a new Warrior::Warrior object. */
 Warrior::Warrior()
 {
     this->setName("Birest Shadowbattle");
@@ -17,27 +12,14 @@ Warrior::Warrior()
     this->setRagePoints(0);
 }
 
-/** Constructor for a Warrior object.
+/**
+ * @brief Construct a new Warrior:: Warrior object.
  *
- * Args:
- *   std::string name:
- *     The name you want to give your warrior.
- *
- *   int hitPoints:
- *     How much health to give your warrior
- *     (max value of 100).
- *
- *   int strength:
- *     The base amount of damage a warrior can do
- *     in hitpoints.
- *
- *   int defence:
- *     How much damage a warrior can mitigate
- *     in hitpoints.
- *
- *   int ragePoints:
- *     How many rage points the warrior starts
- *     with (min value of 0).
+ * @param name The name of the warrior.
+ * @param hitPoints How much health the warrior has.
+ * @param strength How much base damage the warrior can do.
+ * @param defence How much damage the warrior can mitigate per turn.
+ * @param ragePoints How much rage the warrior has stored.
  */
 Warrior::Warrior(std::string name, int hitPoints,
                  int strength, int defence, int ragePoints)
@@ -49,20 +31,21 @@ Warrior::Warrior(std::string name, int hitPoints,
     this->setRagePoints(ragePoints);
 }
 
-/** Return the current number of rage points the warrior has. */
+/**
+ * @brief Get the rage points of the warrior.
+ *
+ * @return The rage points of the warrior.
+ */
 int Warrior::getRagePoints()
 {
     return this->ragePoints;
 }
 
-/** Set the number of rage points.
+/**
+ * @brief Set how many rage points the warrior has.
  *
- * Args:
- *   int ragePoints:
- *     The number of rage points to set the warrior to.
- *
- * Throws std::invalid_argument:
- *   If ragePoints is less than 0.
+ * @param ragePoints The number of rage points the warrior has.
+ * @throw std::invalid_argument if ragePoints is less than 0.
  */
 void Warrior::setRagePoints(int ragePoints)
 {
@@ -73,10 +56,10 @@ void Warrior::setRagePoints(int ragePoints)
     this->ragePoints = ragePoints;
 }
 
-/** Return the amount of damage the warrior does this turn.
+/**
+ * @brief Return the amount of damage dealt by the Warrior.
  *
- * If the warrior has enough rage, it will do a heavy attack.
- * Otherwise, it will generate 5 rage, and do a basic attack.
+ * @return int How much damage the warrior can do.
  */
 int Warrior::doAction()
 {

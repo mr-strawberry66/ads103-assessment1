@@ -2,12 +2,7 @@
 #include <stdexcept>
 #include "Paladin.hpp"
 
-/** Default constructor for a Paladin object.
- *
- * Sets the name, hit points, strength,
- * defence, rage points, and heal amount
- * to the default values.
- */
+/** @brief Default constructor for a new Paladin::Paladin object. */
 Paladin::Paladin()
 {
     this->setName("Arno'gech Strongsword");
@@ -18,27 +13,15 @@ Paladin::Paladin()
     this->setHealAmount(10);
 }
 
-/** Constructor for a Paladin object.
+/**
+ * @brief Construct a new Paladin::Paladin object.
  *
- * Args:
- *   std::string name:
- *     The name you want to give your paladin.
- *
- *   int hitPoints:
- *     How much health to give your paladin (max value of 100).
- *
- *   int strength:
- *     How strong your paladin should be (max value of 10).
- *
- *   int defence:
- *     How well you wish your paladin to be able to
- *     defend against attacks (max value of 10).
- *
- *  int ragePoints:
- *    How much rage points the paladin should start with (min value of 0).
- *
- *   int healAmount:
- *     How much health to give the paladin when healing (min value of 0, max of 10).
+ * @param name The name to give your paladin.
+ * @param hitPoints How much health your paladin should have.
+ * @param strength How much damage your paladin can do.
+ * @param defence The amount of damage your paladin can mitigate per turn.
+ * @param ragePoints How much rage your paladin starts with.
+ * @param healAmount How much health the heal spell grants.
  */
 Paladin::Paladin(std::string name, int hitPoints, int strength,
                  int defence, int ragePoints, int healAmount)
@@ -51,27 +34,27 @@ Paladin::Paladin(std::string name, int hitPoints, int strength,
     this->setHealAmount(healAmount);
 }
 
-/** Return how much the paladin can heal for. */
+/**
+ * @brief Get how much health the paladin can heal for.
+ *
+ * @return int The amount of health the paladin can heal for.
+ */
 int Paladin::getHealAmount()
 {
     return this->healAmount;
 }
 
-/** Set how much the paladin can heal for.
+/**
+ * @brief Set how much health the paladin can heal for.
  *
- * Args:
- *   int healAmount:
- *     How much health to give the paladin when healing (min value of 0, max of 10).
- *
- * Throws std::invalid_argument:
- *   If healAmount is less than 0 or greater
- *   than 10.
+ * @param healAmount The amount of health the paladin can heal for.
+ * @throws std::invalid_argument if the heal amount is negative or greater than 10.
  */
 void Paladin::setHealAmount(int healAmount)
 {
     if (healAmount < 0)
         throw std::invalid_argument(
-            "Heal Amount must be greater than 0.");
+            "Heal Amount must be at least 0.");
 
     if (healAmount > 10)
         throw std::invalid_argument(
@@ -80,16 +63,22 @@ void Paladin::setHealAmount(int healAmount)
     this->healAmount = healAmount;
 }
 
-/** Return the amount of damage a paladin can do this turn.
+/**
+ * @brief Attack another character.
  *
- * If the paladin has 20 or less hitpoints
- * and has more than 15 rage points, it will
- * heal themselves.
+ * If the paladin's health is less than 20hp
+ * and the paladin has more than 15 rage, the
+ * paladin will heal. This will not deal any
+ * damage to the target.
  *
- * If they have more than 20 health, and 15
- * rage points, it will do a heavy attack.
+ * If the paladin has more than 20hp and more
+ * than 15 rage, the paladin will deal a heavy
+ * attack.
  *
- * Otherwise, it will do a basic attack.
+ * Otherwise the paladin will generate 5 rage
+ * and deal a light attack.
+ *
+ * @return int The amount of damage the paladin did.
  */
 int Paladin::doAction()
 {

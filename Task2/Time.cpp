@@ -9,9 +9,7 @@
  */
 int Time::timeFunction(void (*func)(List &list), List &list)
 {
-    using std::chrono::duration_cast;
-    using std::chrono::milliseconds;
-    using std::chrono::steady_clock;
+    using namespace std::chrono;
 
     steady_clock::time_point start = steady_clock::now();
 
