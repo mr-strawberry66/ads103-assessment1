@@ -7,22 +7,14 @@
 #include "Paladin.hpp"
 #include "Mage.hpp"
 
-/** Namespace to keep game related functions out of the global namespace. */
+/** @brief Namespace to contain functions relating to the game. */
 namespace Game
 {
-    /** Return how many hitpoints a Character has remaining.
+    /**
+     * @brief Return how many hit points a character has.
      *
-     * Args:
-     *   Character character:
-     *     A Character or subclass of Character
-     *     to pull the information from.
-     *
-     * Returns std::string:
-     *   A formatted string including the
-     *   Character's name and remaining hitpoints
-     *   or, if the character has less than 0
-     *   hitpoints, a message informing the death
-     *   of the Character.
+     * @param character The character to get the hit points of.
+     * @return std::string A formatted string containing the character's name and hit points.
      */
     std::string hitPointsStatus(Character character)
     {
@@ -34,49 +26,34 @@ namespace Game
         return character.getName() + " has " + std::to_string(character.getHitPoints()) + " hit points remaining!\n";
     }
 
-    /** Return how much damage a Character has done.
+    /**
+     * @brief Return how much damage a character has done this turn.
      *
-     * Args:
-     *   Character character:
-     *     A Character or subclass of Character
-     *     to pull the information from.
-     *
-     *   int damage:
-     *     The amount of damage the Character dealt.
-     *
-     * Returns std::string:
-     *   A formatted string including the Character's
-     *   name, and how much damage they dealt.
+     * @param character The character to calculate the damage dealt from.
+     * @param damage The amount of damage the character has done.
+     * @return std::string A formatted string containing the character's name and damage dealt.
      */
     std::string damageDealtStatus(Character character, const int damage)
     {
         return character.getName() + " deals " + std::to_string(damage) + " hit points!\n";
     }
 
-    /** Return how much healing a Paladin has done.
+    /**
+     * @brief Return how much healing a character has done this turn.
      *
-     * Args:
-     *   Paladin paladin:
-     *     The Paladin object to pull information
-     *     from.
-     *
-     * Returns std::string:
-     *   A formatted string with the Paladin's name
-     *   and how much healing they have done this turn.
+     * @param paladin The paladin to calculate the healing done from.
+     * @return std::string A formatted string containing the paladin's name and healing done.
      */
     std::string healingDoneStatus(Paladin paladin)
     {
         return paladin.getName() + " heals for " + std::to_string(paladin.getHealAmount()) + " hit points!\n";
     }
 
-    /** Run the fight between the Paladin and Mage.
+    /**
+     * @brief Run a fight between a Paladin and a Mage.
      *
-     * Args:
-     *   Paladin& paladin:
-     *     A Paladin object to battle against the mage.
-     *
-     *   Mage& mage:
-     *     A Mage object to battle against the paladin.
+     * @param paladin A paladin to engage in the fight.
+     * @param mage A mage to engage in the fight.
      */
     void gameLoop(Paladin &paladin, Mage &mage)
     {

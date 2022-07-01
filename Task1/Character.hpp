@@ -3,27 +3,13 @@
 
 #include <string>
 
-/** Class to represent a character in the game.
+/**
+ * @brief Class representing a character in the game.
  *
- * This class should be inherited from to create
- * subclasses, for example, a mage, or warrior.
- *
- * Properties:
- *   std::string name:
- *     The name of the character.
- *
- *   int hitPoints:
- *     The number of hitpoints the character has.
- *
- *   int strength:
- *     The base amount of damage a character can do
- *     in hitpoints.
- *
- *   int defence:
- *     How much damage a character can mitigate
- *     in hitpoints.
- *
- * Methods are documented in the implementation file.
+ * @param name The name of the character.
+ * @param hitPoints The amount of health the character has.
+ * @param strength The amount of base damage the character can do.
+ * @param defence The amount of damage a character can mitigate per turn.
  */
 class Character
 {

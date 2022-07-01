@@ -4,33 +4,15 @@
 #include <string>
 #include "Character.hpp"
 
-/** Class to represent a character with the class of Mage.
+/**
+ * @brief Class to represent the character type Mage.
  *
- * Properties:
- *   std::string name:
- *     The name of the mage.
- *
- *   int hitPoints:
- *     The number of hitpoints the mage has.
- *
- *   int strength:
- *     The base amount of damage a mage can do
- *     in hitpoints.
- *
- *   int defence:
- *     How much damage a mage can mitigate
- *     in hitpoints.
- *
- *   int manaPoints:
- *     How much mana the mage has. This is depleted
- *     with each spell cast, and replenished by using
- *     a base attack instead of a spell.
- *
- *   int fireballDamage:
- *     The amount of damage a fireball spell does.
- *     This costs 10 manaPoints to cast.
- *
- * Methods are documented in the implementation file.
+ * @param name The name to give your mage.
+ * @param hitPoints How much health your mage should have.
+ * @param strength How much base damage your mage can do.
+ * @param defence The amount of damage your mage can mitigate per turn.
+ * @param manaPoints How much mana your mage starts with.
+ * @param fireballDamage How much damage the fireball spell does.
  */
 class Mage : public Character
 {

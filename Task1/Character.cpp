@@ -2,10 +2,7 @@
 #include <stdexcept>
 #include "Character.hpp"
 
-/** Default constructor for a Character object.
- *
- * Sets the name, hit points, strength and defence to default values.
- */
+/** @brief Default constructor for a new Character::Character object. */
 Character::Character()
 {
     this->setName("Redel Dualbinder");
@@ -14,21 +11,13 @@ Character::Character()
     this->setDefence(5);
 }
 
-/** Constructor for a Character object.
+/**
+ * @brief Construct a new Character::Character object
  *
- * Args:
- *   std::string name:
- *     The name you want to give your character.
- *
- *   int hitPoints:
- *     How much health to give your character (max value of 100).
- *
- *   int strength:
- *     How strong your character should be (max value of 10).
- *
- *   int defence:
- *     How well you wish your character to be able to defend
- *     against attacks (max value of 10).
+ * @param name The name to give your character.
+ * @param hitPoints How much health your character should have.
+ * @param strength How much damage your character can do.
+ * @param defence The amount of damage your character can mitigate per turn.
  */
 Character::Character(std::string name, int hitPoints, int strength, int defence)
 {
@@ -38,20 +27,21 @@ Character::Character(std::string name, int hitPoints, int strength, int defence)
     this->setDefence(defence);
 }
 
-/** Return the name of the character. */
+/**
+ * @brief Get the character's name.
+ *
+ * @return std::string The character's name.
+ */
 std::string Character::getName()
 {
     return this->name;
 }
 
-/** Set the name of the Character.
+/**
+ * @brief Set the name of a character.
  *
- * Args:
- *   std::string name:
- *     The name you want to give your character.
- *
- * Throws: std::invalid_argument:
- *   If name is an empty string.
+ * @param name The name to give your character.
+ * @throws std::invalid_argument if the name is empty.
  */
 void Character::setName(std::string name)
 {
@@ -60,22 +50,20 @@ void Character::setName(std::string name)
     this->name = name;
 }
 
-/** Return the hit points of the character. */
+/**
+ * @brief Get the character's current health.
+ *
+ * @return int The character's health in hit points.
+ */
 int Character::getHitPoints()
 {
     return this->hitPoints;
 }
 
-/** Set the Character's current hit points.
+/**
+ * @brief Set the character's health.
  *
- * Args:
- *   int hitPoints:
- *	  The amount of health to give your Character.
- *     Must be less than 100. If negative, indicates
- *     that the Character is dead.
- *
- * Throws std::invalid_argument:
- *   If provided hit points are too high.
+ * @param hitPoints The amount of health to give your character in hitPoints.
  */
 void Character::setHitPoints(int hitPoints = 100)
 {
@@ -86,21 +74,21 @@ void Character::setHitPoints(int hitPoints = 100)
     this->hitPoints = hitPoints;
 }
 
-/** Return the strength of the character. */
+/**
+ * @brief Get the character's strength.
+ *
+ * @return int How much base damage the character can do.
+ */
 int Character::getStrength()
 {
     return this->strength;
 }
 
-/** Set the Character's strength.
+/**
+ * @brief Set the character's strength.
  *
- * Args:
- *   int strength:
- *     The amount of strength to give your Character.
- *     Must be less than 10.
- *
- * Throws std::invalid_argument:
- *   If provided strength is too high or low.
+ * @param strength How much base damage the character can do.
+ * @throws std::invalid_argument if the strength is less than 0 or greater than 10.
  */
 void Character::setStrength(int strength)
 {
@@ -115,21 +103,21 @@ void Character::setStrength(int strength)
     this->strength = strength;
 }
 
-/** Return the defence of the character. */
+/**
+ * @brief Get the character's defence.
+ *
+ * @return int How much damage the character can mitigate per turn in hit points.
+ */
 int Character::getDefence()
 {
     return this->defence;
 }
 
-/** Set the defence of the character.
+/**
+ * @brief Set the character's defence.
  *
- * Args:
- *   int defence:
- *     The amount of defence to give your Character.
- *     Must be less than 10.
- *
- * Throws std::invalid_argument:
- *   If provided defence is too high or low.
+ * @param defence How much damage the character can mitigate per turn in hit points.
+ * @throws std::invalid_argument if the defence is less than 0 or greater than 10.
  */
 void Character::setDefence(int defence)
 {
@@ -144,22 +132,20 @@ void Character::setDefence(int defence)
     this->defence = defence;
 }
 
-/** Return the damage dealt by the Character this turn. */
+/**
+ * @brief Attack another character.
+ *
+ * @return int The amount of damage the character did.
+ */
 int Character::doAction()
 {
     return this->strength;
 }
 
-/** Take damage from an attack.
+/**
+ * @brief Take damage from an enemy attack.
  *
- * Updates the Character's hit points by
- * subtracting the amount of damage taken by
- * the Character's defence, then subtracts the
- * reduced damage from the Character's hit points.
- *
- * Args:
- *   int damage:
- *     The amount of damage to take.
+ * @param damage The amount of damage to take in hitpoints.
  */
 void Character::takeDamage(int damage)
 {
@@ -173,7 +159,11 @@ void Character::takeDamage(int damage)
     this->setHitPoints(hitPoints);
 }
 
-/** Return whether the character is alive. */
+/**
+ * @brief See if the character is still a live.
+ *
+ * @return bool Whether the character's hit points are a positive integer.
+ */
 bool Character::isAlive()
 {
     return (this->hitPoints > 0);

@@ -5,9 +5,10 @@
 #include "Paladin.hpp"
 #include "Game.hpp"
 
-/** Entry point.
+/**
+ * @brief Begin a fight between a mage and a paladin.
  *
- * Pit a Mage against a Palaidn and see who the victor is.
+ * @return int The exit code.
  */
 int main()
 {
@@ -24,8 +25,12 @@ int main()
         else
             std::cout << "Mage " << mage.getName() << " wins!" << std::endl;
     }
+
     catch (const std::invalid_argument err)
     {
         std::cout << "Error! " << err.what() << std::endl;
+        return 1;
     }
+
+    return 0;
 }
