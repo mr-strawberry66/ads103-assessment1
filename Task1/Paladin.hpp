@@ -2,6 +2,7 @@
 #define PALADIN
 
 #include <string>
+#include <stdexcept>
 #include "Warrior.hpp"
 
 /**

@@ -1,5 +1,3 @@
-#include <string>
-#include <stdexcept>
 #include "Paladin.hpp"
 
 /** @brief Default constructor for a new Paladin::Paladin object. */
